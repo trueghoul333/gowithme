@@ -1,4 +1,6 @@
 from pygame import *
+
+
 #приииииииивееееееееееееееееееееет
 game = True
 clock = time.Clock()
@@ -65,11 +67,13 @@ class pulavraga(sprite.Sprite):
     def letit(self):
         okno.blit(self.image, (self.rect.x, self.rect.y))
         self.rect.x -= 6
+
 pv = pulavraga('noj.png', 700, 140)
 
 points = 15
 
 from random import*
+
 
 class enemy(GameSprite):
     def taran(self):
@@ -135,14 +139,19 @@ while game:
     okno.blit(back1, (-800 - x1, 0))
     okno.blit(back2, (0 - x1, 0))
     okno.blit(back3, (800 - x1, 0))
+    
     zhizn = UI.render(str(lives), True, (255, 255, 0))
     ochki = UI.render(str(points), True, (255, 255, 0))
+    
     okno.blit(ochki,(100, 30))
     okno.blit(zhizn, (600, 30))
+    
     dang.ris()
     dang.control()
+    
     pl.letit()
     pv.letit()
+    
     for i in strelki:
         i.ris()
         if sprite.collide_rect(i, pl):
@@ -152,6 +161,7 @@ while game:
             shuffle(strelki)
             pv.rect.x = strelki[0].rect.x
             pv.rect.y = strelki[0].rect.y
+            
     if points < 10 and len(strelki) < 4:
         for i in range(4):
             en2 = enemy('apple.png', 700, 70* i)
@@ -168,6 +178,7 @@ while game:
             i.rect.y = randint(10, 250)
             i.rect.x = 800
             lives -= 1
+            
     if lives < 1:
         game = False
     
@@ -182,10 +193,12 @@ while game:
 pisatel = font.Font(None, 70)
 text = pisatel.render('You lose!!', True, (0, 0, 0))
 mixer.music.pause()
+
 while finish:
     for i in event.get():
         if i.type == QUIT:
             finish = False
+            
     okno.fill((255, 211, 254))
     okno.blit(text, (100, 250))
     display.update()
