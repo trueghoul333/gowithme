@@ -1,5 +1,5 @@
 from pygame import *
-#привет
+#приииииииивееееееееееееееееееееет
 
 game = True
 clock = time.Clock()
