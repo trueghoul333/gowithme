@@ -111,6 +111,7 @@ mixer.music.play()
 musicon = 1
 
 pos = 0
+
 x1 = 0
 
 boom = mixer.Sound('m111.mp3')
