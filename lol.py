@@ -1,7 +1,6 @@
 from pygame import *
 
 
-#приииииииивееееееееееееееееееееет
 game = True
 clock = time.Clock()
 okno = display.set_mode((800, 300))
