@@ -1,6 +1,5 @@
 from pygame import *
 #приииииииивееееееееееееееееееееет
-
 game = True
 clock = time.Clock()
 okno = display.set_mode((800, 300))
@@ -9,7 +8,6 @@ display.set_caption('треш')
 back1 = transform.scale(image.load("fon.jpg"), (800, 300))
 back2 = transform.scale(image.load("fon.jpg"), (800, 300))
 back3 = transform.scale(image.load("fon.jpg"), (800, 300))
-
 
 class GameSprite(sprite.Sprite):
     def __init__(self, img, x, y):
@@ -24,7 +22,6 @@ class GameSprite(sprite.Sprite):
             okno.blit(transform.flip(self.image, True, False), (self.rect.x, self.rect.y))
         else:
             okno.blit(self.image, (self.rect.x, self.rect.y))
-
 
 class vesh(sprite.Sprite):
     def __init__(self, img, x, y):
@@ -57,7 +54,6 @@ class pula(sprite.Sprite):
         okno.blit(self.image, (self.rect.x, self.rect.y))
         self.rect.x += 6
 
-
 class pulavraga(sprite.Sprite):
     def __init__(self, img, x, y):
         super().__init__()
@@ -71,11 +67,9 @@ class pulavraga(sprite.Sprite):
         self.rect.x -= 6
 pv = pulavraga('noj.png', 700, 140)
 
-
 points = 15
 
 from random import*
-
 
 class enemy(GameSprite):
     def taran(self):
@@ -86,7 +80,6 @@ class enemy(GameSprite):
             points -= 5
             self.rect.y = randint(10, 200)
             self.rect.x = 800
-
 
 dang = ship("spr.png", 50, 137)
 
@@ -102,7 +95,6 @@ for i in range(4):
     en2 = enemy('apple.png', 700, 70* i)
     strelki.append(en2)
 
-
 finish = False
 
 font.init()
@@ -114,8 +106,6 @@ mixer.music.load('music.mp3')
 mixer.music.play()
 
 musicon = 1
-
-
 
 pos = 0
 x1 = 0
@@ -166,7 +156,6 @@ while game:
         for i in range(4):
             en2 = enemy('apple.png', 700, 70* i)
             strelki.append(en2)
-
 
     for i in en:
         i.taran()
